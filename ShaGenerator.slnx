@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShaGenerator.Api/ShaGenerator.Api.csproj" />
+    <Project Path="src/ShaGenerator.Application/ShaGenerator.Application.csproj" />
+    <Project Path="src/ShaGenerator.Contracts/ShaGenerator.Contracts.csproj" />
+    <Project Path="src/ShaGenerator.Domain/ShaGenerator.Domain.csproj" />
+    <Project Path="src/ShaGenerator.Infrastructure/ShaGenerator.Infrastructure.csproj" />
+  </Folder>
+</Solution>
