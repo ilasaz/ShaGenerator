@@ -1,6 +1,8 @@
 @ShaGenerator.Api_HostAddress = http://localhost:5196
 
-GET {{ShaGenerator.Api_HostAddress}}/weatherforecast/
+GET {{ShaGenerator.Api_HostAddress}}/hashes/
 Accept: application/json
 
 ###
+
+POST {{ShaGenerator.Api_HostAddress}}/hashes/
