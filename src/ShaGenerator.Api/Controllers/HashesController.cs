@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShaGenerator.Application.Hashes;
+using ShaGenerator.Application.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,15 +10,14 @@ namespace ShaGenerator.Api.Controllers;
 [Route("[controller]")]
 public sealed class HashesController : ControllerBase
 {
-    private readonly IHashPublisher _publisher;
+    private readonly HashGeneratorService _generator;
 
-    public HashesController(IHashPublisher publisher) => _publisher = publisher;
+    public HashesController(HashGeneratorService generator) => _generator = generator;
 
     [HttpPost]
     public async Task<IActionResult> Post(CancellationToken cancellationToken)
     {
-        string message = "Testing message";
-        await _publisher.PublishAsync(message, cancellationToken);
-        return Accepted();
+        int published = await _generator.GenerateAndPublishAsync(cancellationToken);
+        return Accepted(new { published });
     }
 }

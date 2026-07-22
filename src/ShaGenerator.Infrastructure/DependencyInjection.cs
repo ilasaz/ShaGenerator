@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ShaGenerator.Application.Hashes;
+using ShaGenerator.Application.Services;
 using ShaGenerator.Infrastructure.Database;
 using ShaGenerator.Infrastructure.Messaging;
 
@@ -13,6 +14,7 @@ public static class DependencyInjection
     {
         services.AddDatabase(configuration);
         services.AddMessaging(configuration);
+        services.AddScoped<HashGeneratorService>();
         return services;
     }
 
