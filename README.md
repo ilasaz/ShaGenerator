@@ -1,0 +1,1 @@
+I have developed this application based on [Milan's Clean Architecture Template](https://milanjovanovic.tech/templates/clean-architecture) and ["Getting Started: Clean Architecture in .NET" course on Dometrain](https://dometrain.com/course/getting-started-clean-architecture-in-dotnet/).
