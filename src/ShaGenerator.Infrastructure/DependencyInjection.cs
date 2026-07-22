@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ShaGenerator.Application.Abstractions.Data;
 using ShaGenerator.Application.Hashes;
 using ShaGenerator.Application.Services;
 using ShaGenerator.Infrastructure.Database;
@@ -26,6 +27,8 @@ public static class DependencyInjection
 
         services.AddDbContext<ShaGeneratorDbContext>(options =>
             options.UseMySql(connectionString, serverVersion));
+
+        services.AddScoped<IShaGeneratorDbContext>(sp => sp.GetRequiredService<ShaGeneratorDbContext>());
 
         return services;
     }

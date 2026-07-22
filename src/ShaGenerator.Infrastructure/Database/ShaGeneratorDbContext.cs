@@ -1,10 +1,11 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using ShaGenerator.Application.Abstractions.Data;
 using ShaGenerator.Domain.Hashes;
 
 namespace ShaGenerator.Infrastructure.Database;
 
-public class ShaGeneratorDbContext : DbContext
+public class ShaGeneratorDbContext : DbContext, IShaGeneratorDbContext
 {
     public DbSet<Hash> Hashes { get; set; }
 
